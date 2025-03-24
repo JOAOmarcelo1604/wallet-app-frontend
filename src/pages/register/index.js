@@ -6,7 +6,7 @@ const onCallRegister = async (email, name) => {
     };
 
     const response = await fetch(
-      "https://wallet-app-xrbik1pdd-joao-marcelos-projects-89356393.vercel.app/finances",
+      "https://wallet-app-7a9ke16ul-joao-marcelos-projects-89356393.vercel.app/finances",
       {
         method: "POST",
         mode: "cors",
