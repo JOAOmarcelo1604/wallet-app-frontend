@@ -8,10 +8,10 @@ const onDeleteItem = async (id) => {
     const email = localStorage.getItem("@WalletApp:userEmail");
 
     await fetch(
-      `https://wallet-app-ffijkvk1c-joao-marcelos-projects-89356393.vercel.app/finances/${id}`,
+      `https://wallet-app-a36w85yf1-joao-marcelos-projects-89356393.vercel.app/finances/${id}`,
       {
         method: "DELETE",
-        mode: "cors",
+        mode: "no-cors",
         cache: "no-cache",
         credentials: "same-origin",
         headers: {
@@ -205,12 +205,13 @@ const onLoadFinancesData = async () => {
     const dateInputValue = document.getElementById("selected-date").value;
     const email = localStorage.getItem("@WalletApp:userEmail");
     const result = await fetch(
-      `https://wallet-app-ffijkvk1c-joao-marcelos-projects-89356393.vercel.app/finances?date=${dateInputValue}`,
+      `https://wallet-app-a36w85yf1-joao-marcelos-projects-89356393.vercel.app/finances?date=${dateInputValue}`,
       {
         method: "GET",
         headers: {
           email: email,
         },
+        mode: "no-cors",
       }
     );
     const data = await result.json();
@@ -254,7 +255,7 @@ const onLoadCategories = async () => {
   try {
     const categoriesSelect = document.getElementById("input-category");
     const response = await fetch(
-      "https://wallet-app-ffijkvk1c-joao-marcelos-projects-89356393.vercel.app/categories"
+      "https://wallet-app-a36w85yf1-joao-marcelos-projects-89356393.vercel.app/categories"
     );
     const categoriesResult = await response.json();
     categoriesResult.map((category) => {
@@ -285,10 +286,10 @@ const onCallAddFinance = async (data) => {
     const email = localStorage.getItem("@WalletApp:userEmail");
 
     const response = await fetch(
-      "https://wallet-app-ffijkvk1c-joao-marcelos-projects-89356393.vercel.app/finances",
+      "https://wallet-app-a36w85yf1-joao-marcelos-projects-89356393.vercel.app/finances",
       {
         method: "POST",
-        mode: "cors",
+        mode: "no-cors",
         cache: "no-cache",
         credentials: "same-origin",
         headers: {
