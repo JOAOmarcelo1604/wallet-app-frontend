@@ -6,10 +6,10 @@ const onCallRegister = async (email, name) => {
     };
 
     const response = await fetch(
-      "https://wallet-app-a36w85yf1-joao-marcelos-projects-89356393.vercel.app/finances",
+      "https://wallet-app-xrbik1pdd-joao-marcelos-projects-89356393.vercel.app/finances",
       {
         method: "POST",
-        mode: "no-cors",
+        mode: "cors",
         cache: "no-cache",
         credentials: "same-origin",
         headers: {

@@ -1,12 +1,27 @@
 const validateUser = async (email) => {
   try {
-    const result = await fetch(
-      `https://wallet-app-a36w85yf1-joao-marcelos-projects-89356393.vercel.app/users?email=${email}`
+    const response = await fetch(
+      `https://wallet-app-xrbik1pdd-joao-marcelos-projects-89356393.vercel.app/users?email=${email}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          // Se precisar de autenticação, adicione aqui
+          // "Authorization": `Bearer ${TOKEN}`
+        },
+      }
     );
-    const user = await result.json();
+
+    // Se a resposta não for OK, lança um erro
+    if (!response.ok) {
+      throw new Error(`Erro ${response.status}: ${response.statusText}`);
+    }
+
+    const user = await response.json();
     return user;
   } catch (error) {
-    return { error };
+    console.error("Erro ao validar usuário:", error);
+    return { error: error.message };
   }
 };
 
