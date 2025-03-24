@@ -6,7 +6,7 @@ const onCallRegister = async (email, name) => {
     };
 
     const response = await fetch(
-      "https://jm-wallet-api-backend-2993d0764f22.herokuapp.com/users",
+      "https://wallet-app-a0m3vpwhm-joao-marcelos-projects-89356393.vercel.app/finances",
       {
         method: "POST",
         mode: "cors",
@@ -14,6 +14,7 @@ const onCallRegister = async (email, name) => {
         credentials: "same-origin",
         headers: {
           "Content-Type": "application/json",
+          email: email,
         },
         body: JSON.stringify(data),
       }
