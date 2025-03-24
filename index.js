@@ -1,7 +1,7 @@
 const validateUser = async (email) => {
   try {
     const result = await fetch(
-      `https://wallet-app-a0m3vpwhm-joao-marcelos-projects-89356393.vercel.app/users?email=${email}`
+      `https://wallet-app-ffijkvk1c-joao-marcelos-projects-89356393.vercel.app/users?email=${email}`
     );
     const user = await result.json();
     return user;
