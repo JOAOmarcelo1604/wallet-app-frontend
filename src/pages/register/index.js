@@ -6,7 +6,7 @@ const onCallRegister = async (email, name) => {
     };
 
     const response = await fetch(
-      "https://wallet-app-7a9ke16ul-joao-marcelos-projects-89356393.vercel.app/finances",
+      "https://wallet-app-9vwab65gr-joao-marcelos-projects-89356393.vercel.app/finances",
       {
         method: "POST",
         mode: "cors",
@@ -14,7 +14,8 @@ const onCallRegister = async (email, name) => {
         credentials: "same-origin",
         headers: {
           "Content-Type": "application/json",
-          email: email,
+          Authorization: "Bearer msrbe1fZSR5Iwu5x2JKcxF8b", // Adiciona o token de autenticação
+          email: email, // Mantém o email como estava
         },
         body: JSON.stringify(data),
       }
