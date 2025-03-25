@@ -9,7 +9,7 @@ const onDeleteItem = async (id) => {
     const token = "msrbe1fZSR5Iwu5x2JKcxF8b"; // Adicionando o token diretamente ou pegue do localStorage se armazenado lá
 
     await fetch(
-      `https://wallet-app-9vwab65gr-joao-marcelos-projects-89356393.vercel.app/finances/${id}`,
+      "https://wallet-app-4gs6v76oo-joao-marcelos-projects-89356393.vercel.app/finances/${id}",
       {
         method: "DELETE",
         mode: "cors",
@@ -207,7 +207,7 @@ const onLoadFinancesData = async () => {
     const dateInputValue = document.getElementById("selected-date").value;
     const email = localStorage.getItem("@WalletApp:userEmail");
     const result = await fetch(
-      `https://wallet-app-9vwab65gr-joao-marcelos-projects-89356393.vercel.app/finances?date=${dateInputValue}`,
+      "https://wallet-app-4gs6v76oo-joao-marcelos-projects-89356393.vercel.app/finances?date=${dateInputValue}",
       {
         method: "GET",
         headers: {
@@ -259,7 +259,7 @@ const onLoadCategories = async () => {
   try {
     const categoriesSelect = document.getElementById("input-category");
     const response = await fetch(
-      "https://wallet-app-9vwab65gr-joao-marcelos-projects-89356393.vercel.app/categories"
+      "https://wallet-app-4gs6v76oo-joao-marcelos-projects-89356393.vercel.app/categories"
     );
     const categoriesResult = await response.json();
     categoriesResult.map((category) => {
@@ -290,7 +290,7 @@ const onCallAddFinance = async (data) => {
     const email = localStorage.getItem("@WalletApp:userEmail");
 
     const response = await fetch(
-      "https://wallet-app-9vwab65gr-joao-marcelos-projects-89356393.vercel.app/finances",
+      "https://wallet-app-4gs6v76oo-joao-marcelos-projects-89356393.vercel.app/finances",
       {
         method: "POST",
         mode: "cors",
