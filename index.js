@@ -1,6 +1,4 @@
 const validateUser = async (email) => {
-  const token = "msrbe1fZSR5Iwu5x2JKcxF8b"; // Token correto
-
   try {
     const response = await fetch(
       `https://wallet-app-api-mz8g.onrender.com/users?email=${email}`,

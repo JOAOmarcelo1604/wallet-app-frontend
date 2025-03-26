@@ -284,7 +284,7 @@ const onCallAddFinance = async (data) => {
     const email = localStorage.getItem("@WalletApp:userEmail");
 
     const response = await fetch(
-      "https://wallet-app-4gs6v76oo-joao-marcelos-projects-89356393.vercel.app/finances",
+      "https://wallet-app-api-mz8g.onrender.com/finances",
       {
         method: "POST",
         mode: "cors",

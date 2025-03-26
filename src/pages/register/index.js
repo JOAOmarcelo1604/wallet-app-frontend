@@ -6,7 +6,7 @@ const onCallRegister = async (email, name) => {
     };
 
     const response = await fetch(
-      "https://wallet-app-api-mz8g.onrender.com/finances",
+      "https://wallet-app-api-mz8g.onrender.com/users",
       {
         method: "POST",
         mode: "cors",
