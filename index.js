@@ -3,7 +3,7 @@ const validateUser = async (email) => {
 
   try {
     const response = await fetch(
-      `https://wallet-app-4x77417g4-joao-marcelos-projects-89356393.vercel.app/users?email=${email}`,
+      `https://wallet-app-api-mz8g.onrender.com/users?email=${email}`,
       {
         method: "GET",
         headers: {

@@ -16,7 +16,7 @@ The main objective is the user add and delete finances releases (that are saved 
 1. Clone the application:
 
 ```
-git clone https://github.com/JOAOmarcelo1604/wallet-app-frontend.git
+git clone https://github.com/JOAOmarcelo1604/wallet-app_frontend.git
 ```
 
 2. Open in the explorer the project and open the index.html file
