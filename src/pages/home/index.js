@@ -6,22 +6,17 @@ const onLogout = () => {
 const onDeleteItem = async (id) => {
   try {
     const email = localStorage.getItem("@WalletApp:userEmail");
-    const token = "msrbe1fZSR5Iwu5x2JKcxF8b"; // Adicionando o token diretamente ou pegue do localStorage se armazenado lá
 
-    await fetch(
-      "https://wallet-app-4gs6v76oo-joao-marcelos-projects-89356393.vercel.app/finances/${id}",
-      {
-        method: "DELETE",
-        mode: "cors",
-        cache: "no-cache",
-        credentials: "same-origin",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`, // Adicionando o token de autenticação
-          email: email, // Incluindo o email no cabeçalho
-        },
-      }
-    );
+    await fetch("https://wallet-app-api-mz8g.onrender.com/finances/${id}", {
+      method: "DELETE",
+      mode: "cors",
+      cache: "no-cache",
+      credentials: "same-origin",
+      headers: {
+        "Content-Type": "application/json",
+        email: email, // Incluindo o email no cabeçalho
+      },
+    });
   } catch (error) {
     console.error("Erro ao deletar item:", error);
   }
@@ -207,12 +202,11 @@ const onLoadFinancesData = async () => {
     const dateInputValue = document.getElementById("selected-date").value;
     const email = localStorage.getItem("@WalletApp:userEmail");
     const result = await fetch(
-      "https://wallet-app-4gs6v76oo-joao-marcelos-projects-89356393.vercel.app/finances?date=${dateInputValue}",
+      "https://wallet-app-api-mz8g.onrender.com/finances?date=${dateInputValue}",
       {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer msrbe1fZSR5Iwu5x2JKcxF8b`, // Adicionando o token de autenticação
           email: email, // Incluindo o email no cabeçalho
         },
         mode: "cors",
@@ -259,7 +253,7 @@ const onLoadCategories = async () => {
   try {
     const categoriesSelect = document.getElementById("input-category");
     const response = await fetch(
-      "https://wallet-app-4gs6v76oo-joao-marcelos-projects-89356393.vercel.app/categories"
+      "https://wallet-app-api-mz8g.onrender.com/categories"
     );
     const categoriesResult = await response.json();
     categoriesResult.map((category) => {
@@ -298,7 +292,6 @@ const onCallAddFinance = async (data) => {
         credentials: "same-origin",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer msrbe1fZSR5Iwu5x2JKcxF8b`, // Adicionando o token de autenticação
           email: email, // Incluindo o email no cabeçalho
         },
         body: JSON.stringify(data),
