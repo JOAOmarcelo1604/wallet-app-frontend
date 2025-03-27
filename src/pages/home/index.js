@@ -5,18 +5,33 @@ const onLogout = () => {
 
 const onDeleteItem = async (id) => {
   try {
+    if (!id) {
+      throw new Error(
+        "ID inválido. Verifique se o ID está sendo passado corretamente."
+      );
+    }
+
     const email = localStorage.getItem("@WalletApp:userEmail");
 
-    await fetch("https://wallet-app-api-mz8g.onrender.com/finances/${id}", {
-      method: "DELETE",
-      mode: "cors",
-      cache: "no-cache",
-      credentials: "same-origin",
-      headers: {
-        "Content-Type": "application/json",
-        email: email, // Incluindo o email no cabeçalho
-      },
-    });
+    const response = await fetch(
+      `https://wallet-app-api-mz8g.onrender.com/finances/${id}`,
+      {
+        method: "DELETE",
+        mode: "cors",
+        cache: "no-cache",
+        credentials: "same-origin",
+        headers: {
+          "Content-Type": "application/json",
+          email: email, // Incluindo o email no cabeçalho
+        },
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`Erro ao deletar item. Código: ${response.status}`);
+    }
+
+    console.log("Item deletado com sucesso!");
   } catch (error) {
     console.error("Erro ao deletar item:", error);
   }
