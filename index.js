@@ -6,7 +6,6 @@ const validateUser = async (email) => {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`, // String correta
         },
       }
     );
