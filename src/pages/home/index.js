@@ -19,10 +19,8 @@ const onDeleteItem = async (id) => {
         method: "DELETE",
         mode: "cors",
         cache: "no-cache",
-        credentials: "same-origin",
         headers: {
-          "Content-Type": "application/json",
-          email: email, // Incluindo o email no cabeçalho
+          email: email,
         },
       }
     );
@@ -31,8 +29,12 @@ const onDeleteItem = async (id) => {
       throw new Error(`Erro ao deletar item. Código: ${response.status}`);
     }
 
-    console.log("Item deletado com sucesso!");
+    alert("Item deletado com sucesso!");
+
+    // Atualiza a lista após a exclusão
+    onLoadFinancesData();
   } catch (error) {
+    alert("Erro ao deletar o item.");
     console.error("Erro ao deletar item:", error);
   }
 };
