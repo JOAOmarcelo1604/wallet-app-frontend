@@ -200,9 +200,17 @@ const renderFinanceElements = (data) => {
 const onLoadFinancesData = async () => {
   try {
     const dateInputValue = document.getElementById("selected-date").value;
+    if (!dateInputValue) {
+      console.error("Erro: Nenhuma data foi selecionada!");
+      return;
+    }
+
     const email = localStorage.getItem("@WalletApp:userEmail");
+
     const result = await fetch(
-      "https://wallet-app-api-mz8g.onrender.com/finances?date=${dateInputValue}",
+      `https://wallet-app-api-mz8g.onrender.com/finances?date=${encodeURIComponent(
+        dateInputValue
+      )}`,
       {
         method: "GET",
         headers: {
@@ -212,11 +220,13 @@ const onLoadFinancesData = async () => {
         mode: "cors",
       }
     );
+
     const data = await result.json();
     renderFinanceElements(data);
     renderFinancesList(data);
     return data;
   } catch (error) {
+    console.error("Erro ao carregar os dados financeiros:", error);
     return { error };
   }
 };
